@@ -43,7 +43,10 @@ player1 = Player("Estevan","outside")
 userInpt = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
 
 # Write a loop that:
-#
+while not userInpt == 5:
+    print("good choice")
+    userInpt = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
+
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
 # * Waits for user input and decides what to do.
