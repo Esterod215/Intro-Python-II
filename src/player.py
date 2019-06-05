@@ -8,27 +8,27 @@ class Player:
     
     def checkMovement(self,directionNumber,currentRoom):
     
-        if self.currentRoom == "Outside Cave Entrance":
+        if currentRoom == "Outside Cave Entrance":
         
-            if not self.directionNumber == 1:
+            if not directionNumber == 1:
                 return False
         
             else:
                 self.currentRoom = "foyer"
                 return True
     
-        elif self.currentRoom == "Foyer":
+        elif currentRoom == "Foyer":
         
             if self.directionNumber == 1:
-                self.currentRoom = "overlook"
+                currentRoom = "overlook"
                 return True
         
-            elif self.directionNumber == 2:
-                self.currentRoom = "narrow"
+            elif directionNumber == 2:
+                currentRoom = "narrow"
                 return True
         
-            elif self.directionNumber == 4:
-                self.currentRoom = "outside"
+            elif directionNumber == 4:
+                currentRoom = "outside"
                 return True
         
             else:

@@ -57,7 +57,7 @@ while not userInput == 5:
     userInput = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
     
     if userInput == 1:
-        if player1.checkMovement(userInput,room[player1.currentRoom].name):
+        if player1.checkMovement(1,room[player1.currentRoom].name):
             print("Moved North")
         else:
             print("Cannot move in this direction")
