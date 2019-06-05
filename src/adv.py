@@ -4,14 +4,7 @@ import textwrap
 
 # Declare all the rooms
 
-def checkMovement(directionNumber,currentRoom,nextRoom):
-    if currentRoom == "Outside Cave Entrance":
-        if directionNumber == 1:
-            nextRoom = "Foyer"
-            return True
-    else:
-        print("logix failed")
-        return False
+
     
     
 
@@ -54,7 +47,7 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 player1 = Player("Estevan","outside")
 userInput=1
-nextRoom = 'foyer'
+
 
 
 # Write a loop that:
@@ -64,10 +57,10 @@ while not userInput == 5:
     userInput = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
     
     if userInput == 1:
-        if checkMovement(1,room[player1.currentRoom].name,nextRoom):
-            player1.moveTo(nextRoom)
+        if player1.checkMovement(userInput,room[player1.currentRoom].name):
+            print("Moved North")
         else:
-            print("cannot move here")
+            print("Cannot move in this direction")
 
     
     elif userInput == 2:
