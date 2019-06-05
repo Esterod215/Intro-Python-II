@@ -1,7 +1,19 @@
 from room import Room
 from player import Player
+import textwrap
 
 # Declare all the rooms
+
+def checkMovement(directionNumber,currentRoom,nextRoom):
+    if currentRoom == "Outside Cave Entrance":
+        if directionNumber == 1:
+            nextRoom = "Foyer"
+            return True
+    else:
+        print("logix failed")
+        return False
+    
+    
 
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -37,15 +49,40 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
-
+# wrapper = textwrap.wrap(width=30)
+# descriptionwrap
 # Make a new player object that is currently in the 'outside' room.
 player1 = Player("Estevan","outside")
-userInpt = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
+userInput=1
+nextRoom = 'foyer'
+
 
 # Write a loop that:
-while not userInpt == 5:
-    print("good choice")
-    userInpt = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
+while not userInput == 5:
+    print(f"{player1.name}'s' current location: {room[player1.currentRoom].name}")
+    print(room[player1.currentRoom])
+    userInput = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
+    
+    if userInput == 1:
+        if checkMovement(1,room[player1.currentRoom].name,nextRoom):
+            player1.moveTo(nextRoom)
+        else:
+            print("cannot move here")
+
+    
+    elif userInput == 2:
+        print("nothing else set up yet")
+   
+    elif userInput == 3:
+        print("nothing else set up yet")
+    
+    elif userInput == 3:
+        print("nothing else set up yet") 
+    
+    else:
+        print("goodbye")
+
+
 
 # * Prints the current room name
 # * Prints the current description (the textwrap module might be useful here).
