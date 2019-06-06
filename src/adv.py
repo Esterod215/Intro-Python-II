@@ -64,13 +64,22 @@ while not userInput == 5:
 
     
     elif userInput == 2:
-        print("nothing else set up yet")
+        if player1.checkMovement(2,room[player1.currentRoom].name):
+            print("Moved East")
+        else:
+            print("Cannot move in this direction")
    
     elif userInput == 3:
-        print("nothing else set up yet")
+        if player1.checkMovement(3,room[player1.currentRoom].name):
+            print("Moved West")
+        else:
+            print("Cannot move in this direction")
     
-    elif userInput == 3:
-        print("nothing else set up yet") 
+    elif userInput == 4:
+        if player1.checkMovement(4,room[player1.currentRoom].name):
+            print("Moved South")
+        else:
+            print("Cannot move in this direction") 
     
     else:
         print("goodbye")

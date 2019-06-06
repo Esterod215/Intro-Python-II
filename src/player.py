@@ -19,22 +19,47 @@ class Player:
     
         elif currentRoom == "Foyer":
         
-            if self.directionNumber == 1:
-                currentRoom = "overlook"
+            if directionNumber == 1:
+                self.currentRoom = "overlook"
                 return True
         
             elif directionNumber == 2:
-                currentRoom = "narrow"
+                self.currentRoom = "narrow"
                 return True
         
             elif directionNumber == 4:
-                currentRoom = "outside"
+                self.currentRoom = "outside"
                 return True
         
             else:
                 return False
+        
+        elif currentRoom == "Grand Overlook":
+            if not directionNumber == 4:
+                return False
+            else:
+                self.currentRoom = "foyer"
+                return True
+
+        elif currentRoom == "Narrow Passage":
+            if directionNumber == 1:
+                self.currentRoom = "treasure"
+                return True
+            
+            elif directionNumber == 3:
+                self.currentRoom = "foyer"
+                return True
+                
+            else:
+                return False
+
+        elif currentRoom == "Treasure Chamber":
+            if not directionNumber == 4:
+                return False
+            else:
+                self.currentRoom = "narrow"
+
     
         else:
-            print("logic failed")
             return False
         
