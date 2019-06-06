@@ -11,21 +11,21 @@ import textwrap
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     "North of you, the cave mount beckons",[Item("flashlight","Illuminate dark paths"),Item("key","might open doors or chests")]),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""",[Item("Rusty Sword","Not very sharp but perhaps it has another use")]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""",[Item("Wood","Sturdy. Can be useful if tied together.")]),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air.""",[Item("Rope", "Useful for binding things together")]),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""",[]),
 }
 
 
@@ -55,11 +55,20 @@ userInput = 1
 while not userInput == 5:
     # print(f"{player1.name}'s' current location: {room[player1.currentRoom].name}")
     print(f"{player1.name}'s current",room[player1.currentRoom])
+    
+    if room[player1.currentRoom].items:
+        print("There are items in the room")
+        for i in room[player1.currentRoom].items:
+            print(f"{i.name}: {i.description}")
+    else:
+        print("no items in the room")
+    
     userInput = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
 
     if userInput == 1:
         if player1.checkMovement(1,room[player1.currentRoom].name):
             print("Moved North")
+            
         else:
             print("Cannot move in this direction")
 
