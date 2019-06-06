@@ -45,9 +45,9 @@ room['treasure'].s_to = room['narrow']
 # wrapper = textwrap.wrap(width=30)
 # descriptionwrap
 # Make a new player object that is currently in the 'outside' room.
-player1 = Player("Estevan","outside")
-userInput=1
-
+userName = str(input("Enter Character's name\n"))
+player1 = Player(userName,"outside")
+userInput = 1
 
 
 # Write a loop that:
@@ -55,7 +55,7 @@ while not userInput == 5:
     print(f"{player1.name}'s' current location: {room[player1.currentRoom].name}")
     print(room[player1.currentRoom])
     userInput = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
-    
+
     if userInput == 1:
         if player1.checkMovement(1,room[player1.currentRoom].name):
             print("Moved North")
@@ -81,8 +81,11 @@ while not userInput == 5:
         else:
             print("Cannot move in this direction") 
     
+    elif userInput == 5:
+        print("Goodbye")
+
     else:
-        print("goodbye")
+        print("Invalid Input")
 
 
 
