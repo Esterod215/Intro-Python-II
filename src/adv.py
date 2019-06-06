@@ -52,8 +52,8 @@ userInput = 1
 
 # Write a loop that:
 while not userInput == 5:
-    print(f"{player1.name}'s' current location: {room[player1.currentRoom].name}")
-    print(room[player1.currentRoom])
+    # print(f"{player1.name}'s' current location: {room[player1.currentRoom].name}")
+    print(f"{player1.name}'s current",room[player1.currentRoom])
     userInput = int(input("What do you want to do: [1] Move North [2] Move East [3] Move West [4] Move South [5] Quit\n"))
 
     if userInput == 1:
